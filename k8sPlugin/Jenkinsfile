@@ -14,16 +14,6 @@ spec:
     image: maven:3.8.6-jdk-11
     tty: true
     command: ['cat']
-    volumeMounts:
-    - mountPath: /host
-      name: test-volume
-  volumes:
-  - name: test-volume
-    hostPath:
-      # directory location on host
-      path: /
-      # this field is optional
-      type: Directory
     securityContext:
       runAsNonRoot: true
       readOnlyRootFilesystem: false
@@ -33,16 +23,6 @@ spec:
   - name: golang
     image: golang:1.16.12
     tty: true
-    volumeMounts:
-    - mountPath: /host
-      name: test-volume
-  volumes:
-  - name: test-volume
-    hostPath:
-      # directory location on host
-      path: /
-      # this field is optional
-      type: Directory
     command: ['cat']
 """) {
 
